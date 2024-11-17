@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes barberpole {
+  100% {
+    background-position: 20px 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+.scale-in {
+  opacity: 0;
+  animation: scaleIn 0.4s ease-out forwards;
+}
+
+.slide-in-right {
+  animation: slideRight 0.4s ease-out forwards;
+}
+
+.slide-in-left {
+  animation: slideLeft 0.4s ease-out forwards;
+}
+
+.quiz-card {
+  @apply bg-white/95 backdrop-blur-sm border border-gray-100 shadow-sm;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quiz-card:hover {
+  transform: translateY(-2px);
+  @apply shadow-md;
+}
+
+.option-button {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.option-button::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.option-button:hover::after {
+  @apply opacity-100;
+}
+
+.option-selected {
+  @apply bg-blue-50 shadow-[0_0_0_2px_#3b82f6,0_4px_12px_-2px_rgba(59,130,246,0.2)] transform scale-[1.02];
+}
+
+/* Glass morphism effect */
+.glass {
+  @apply bg-white/40 backdrop-blur-md border border-white/20;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Smooth transitions */
+.smooth-transition {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+/* Interactive elements */
+.interactive {
+  @apply transform transition-transform duration-200 hover:-translate-y-0.5 active:translate-y-0;
+}
+
+/* Focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
